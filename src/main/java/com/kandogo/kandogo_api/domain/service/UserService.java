@@ -14,10 +14,10 @@ public class UserService {
 
     @Transactional
     public Users saveUser(Users user){
-        boolean existingEmail = userRepository.findByEmail(user.getEmail()).
-                stream().anyMatch(existUser -> !existUser.equals(user));
+        boolean existingEmail = userRepository.findByEmail(user.getEmail())
+                .stream().anyMatch(existUser -> !existUser.equals(user));
 
-        if (!existingEmail){
+        if (existingEmail){
             throw new RuntimeException("Este usuario já existe");
         }
 

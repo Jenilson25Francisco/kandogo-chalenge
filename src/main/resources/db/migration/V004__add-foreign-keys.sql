@@ -1,0 +1,2 @@
+alter table sutainableAction add constraint fk_sutainableAction_users foreign key (user_id) references users (id);
+alter table sutainableAction add constraint fk_sutainableAction_category foreign key (category_id) references category (id);
