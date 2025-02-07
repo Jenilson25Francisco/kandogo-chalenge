@@ -12,6 +12,11 @@ public class UserService {
 
     private final UserRepository userRepository;
 
+    public Users getUserById(String userId){
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("usuario nao encontrado"));
+    }
+
     @Transactional
     public Users saveUser(Users user){
         boolean existingEmail = userRepository.findByEmail(user.getEmail())

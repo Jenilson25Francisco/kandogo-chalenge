@@ -5,11 +5,13 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.OffsetDateTime;
+
 @Getter
 @Setter
 @Entity
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class SutainableAction {
+public class Sutainable {
 
     @Id
     @EqualsAndHashCode.Include
@@ -17,10 +19,12 @@ public class SutainableAction {
     private String id;
     private String title;
     private String description;
-    private Integer points;
+    private int points;
+    @Column(name = "created_at")
+    private OffsetDateTime createdAt;
+    @Enumerated(EnumType.STRING)
+    private Category category;
     @ManyToOne
     private Users user;
-    @ManyToOne
-    private Category category;
 
 }
