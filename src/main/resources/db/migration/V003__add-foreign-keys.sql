@@ -1,0 +1,1 @@
+alter table sutainable add constraint fk_sutainable_users foreign key (user_id) references users (id);
